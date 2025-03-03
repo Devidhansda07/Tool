@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO Optimization -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate AI-powered images with our free tool. Create stunning visuals in various styles and sizes effortlessly.">
+    <meta name="keywords" content="AI image generator, create images online, free AI tool, image creation, artificial intelligence art">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <title>AI Image Generator - Create Stunning Images Online</title>
+    
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="AI Image Generator - Create Stunning Images">
+    <meta property="og:description" content="Use our free AI tool to generate images from text prompts in various styles and sizes.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://yourwebsite.com/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Google AdSense Script (Add your AdSense Publisher ID here) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 600px; /* Slightly wider for ads */
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #image-container {
+            margin-top: 20px;
+        }
+
+        #generated-image {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .features {
+            margin-top: 20px;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        select {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        /* Ad Spaces */
+        .ad-space {
+            margin: 20px 0;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .ad-space p {
+            margin: 0;
+            color: #666;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Image Generator</h1>
+
+        <!-- Top Ad Space (Banner Ad) -->
+        <div class="ad-space">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" <!-- Replace with your AdSense Publisher ID -->
+                 data-ad-slot="YOUR_AD_UNIT_ID_1" <!-- Replace with your Ad Unit ID -->
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <textarea id="prompt" placeholder="Enter your image description here (e.g., 'A sunset over mountains')"></textarea>
+        <button onclick="generateImage()">Generate Image</button>
+        <div id="image-container">
+            <img id="generated-image" src="" alt="Generated Image" style="display: none;">
+            <p id="status">Enter a prompt and click Generate!</p>
+        </div>
+        <div class="features">
+            <label for="style">Style:</label>
+            <select id="style">
+                <option value="realistic">Realistic</option>
+                <option value="cartoon">Cartoon</option>
+                <option value="abstract">Abstract</option>
+            </select>
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="256x256">256x256</option>
+                <option value="512x512">512x512</option>
+                <option value="1024x1024">1024x1024</option>
+            </select>
+        </div>
+
+        <!-- Bottom Ad Space (Rectangle Ad) -->
+        <div class="ad-space">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" <!-- Replace with your AdSense Publisher ID -->
+                 data-ad-slot="YOUR_AD_UNIT_ID_2" <!-- Replace with your Ad Unit ID -->
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 AI Image Generator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function generateImage() {
+            const prompt = document.getElementById('prompt').value;
+            const style = document.getElementById('style').value;
+            const size = document.getElementById('size').value;
+            const imageContainer = document.getElementById('image-container');
+            const generatedImage = document.getElementById('generated-image');
+            const status = document.getElementById('status');
+
+            if (!prompt) {
+                status.textContent = "Please enter a prompt!";
+                return;
+            }
+
+            status.textContent = "Generating image...";
+            generatedImage.style.display = "none";
+
+            // Placeholder image generation
+            setTimeout(() => {
+                const randomImage = `https://picsum.photos/${size.split('x')[0]}/${size.split('x')[1]}?random=${Math.random()}`;
+                generatedImage.src = randomImage;
+                generatedImage.style.display = "block";
+                status.textContent = `Generated image in ${style} style!`;
+            }, 2000);
+
+            // Real AI API Integration (Uncomment aur API key add karein if you have one):
+            /*
+            const apiKey = 'YOUR_API_KEY_HERE'; // Example: OpenAI ya Stable Diffusion API key
+            const url = 'https://api.example.com/generate'; // Replace with actual API endpoint
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    prompt: prompt,
+                    style: style,
+                    size: size
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                generatedImage.src = data.imageUrl; // API se image URL
+                generatedImage.style.display = "block";
+                status.textContent = "Image generated successfully!";
+            })
+            .catch(error => {
+                status.textContent = "Error generating image!";
+                console.error(error);
+            });
+            */
+        }
+    </script>
+</body>
+</html>
